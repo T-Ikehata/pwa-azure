@@ -1,6 +1,9 @@
 // workbox cdn読み込み
 importScripts('https://storage.googleapis.com/workbox-cdn/releases/3.6.1/workbox-sw.js');
 
+// キャッシュ対象外のリソースには service worker は何もしない設定
+workbox.routing.setDefaultHandler(new workbox.strategies.NetworkOnly());
+
 // オフラインページ指定
 const OFFLINE_PAGE = '/pwa-azure/index.html';
 workbox.precaching.precacheAndRoute([
@@ -35,9 +38,6 @@ workbox.routing.registerRoute(({ url, request }) => {
     types.some(type => request.destination === type)
   );
 }, new workbox.strategies.StaleWhileRevalidate());
-
-// キャッシュ対象外のリソースには service worker は何もしない設定
-workbox.routing.setDefaultHandler(new workbox.strategies.NetworkOnly());
 
 // push 通知の待ち受け
 self.addEventListener('push', function(event) {
