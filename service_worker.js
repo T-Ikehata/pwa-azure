@@ -1,7 +1,7 @@
 // キャッシュファイルの指定
-var CACHE_NAME = 'pwa-sample-caches3';
+var CACHE_NAME = 'pwa-azure-caches';
 var urlsToCache = [
-    '/pwa-test2/',
+    '/pwa-azure/',
 ];
 
 // インストール処理
