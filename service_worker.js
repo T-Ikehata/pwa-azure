@@ -1,30 +1,8 @@
-// キャッシュファイルの指定
-var CACHE_NAME = 'pwa-azure-caches';
-var urlsToCache = [
-    '/pwa-azure/',
-];
-
-// インストール処理
-self.addEventListener('install', function(event) {
-    event.waitUntil(
-        caches
-            .open(CACHE_NAME)
-            .then(function(cache) {
-                return cache.addAll(urlsToCache);
-            })
-    );
-});
-
-// リソースフェッチ時のキャッシュロード処理
-self.addEventListener('fetch', function(event) {
-    event.respondWith(
-        caches
-            .match(event.request)
-            .then(function(response) {
-                return response ? response : fetch(event.request);
-            })
-    );
-});
+importScripts('https://storage.googleapis.com/workbox-cdn/releases/3.6.1/workbox-sw.js');
+workbox.routing.registerRoute(
+  new RegExp('.*\.js'),
+  workbox.strategies.cacheFirst()
+);
 
 // push 通知の待ち受け
 self.addEventListener('push', function(event) {
