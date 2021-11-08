@@ -1,6 +1,6 @@
 {
-  "name":"TAP10 0.0.13",
-  "short_name":"TAP10",
+  "name":"PWA-Azure 0.0.16",
+  "short_name":"PWA-Azure",
   "icons": [{
       "src": "/pwa-azure/icon-192x192.png",
       "sizes":"192x192",
