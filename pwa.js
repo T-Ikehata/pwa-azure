@@ -88,7 +88,6 @@ if ('serviceWorker' in navigator && 'PushManager' in window) {
       onPushConsole('アップデートがあります！');
       //swRegistration.update();
       swRegistration.unregister();
-      window.location.reload(true); 
     }
 
 
