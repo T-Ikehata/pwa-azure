@@ -18,24 +18,23 @@ workbox.routing.setCatchHandler(({ event }) => {
 });
 
 // 実行時キャッシュ登録
-workbox.routing.registerRoute(({ url, request }) => {
-  const hostnames = [
-    // キャッシュを許可するドメイン名のリスト
-    't-ikehata.github.io',
-  ];
-  const types = [
-    // キャッシュを許可するリソースの種別
-    'font',
-    'script',
-    'style',
-    'image',
-  ];
-  return (
-    hostnames.some(hostname => url.hostname === hostname) &&
-    types.some(type => request.destination === type)
-  );
-}, new workbox.strategies.StaleWhileRevalidate());
-
+//workbox.routing.registerRoute(({ url, request }) => {
+//  const hostnames = [
+//    // キャッシュを許可するドメイン名のリスト
+//    't-ikehata.github.io',
+//  ];
+//  const types = [
+//    // キャッシュを許可するリソースの種別
+//    'font',
+//    'script',
+//    'style',
+//    'image',
+//  ];
+//  return (
+//    hostnames.some(hostname => url.hostname === hostname) &&
+//    types.some(type => request.destination === type)
+//  );
+//}, new workbox.strategies.StaleWhileRevalidate());
 workbox.routing.registerRoute(
     new RegExp('\\.(html|css|js|json|jpe?g|png|gif|webp|svg)$'),
     new workbox.strategies.NetworkFirst()
