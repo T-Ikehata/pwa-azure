@@ -18,7 +18,7 @@ workbox.routing.setCatchHandler(({ event }) => {
     default:
       return Response.error();
   }
-});
+}, new workbox.strategies.NetworkFirst());
 
 // 実行時キャッシュ登録
 workbox.routing.registerRoute(({ url, request }) => {
