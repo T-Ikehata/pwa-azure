@@ -36,6 +36,11 @@ workbox.routing.registerRoute(({ url, request }) => {
   );
 }, new workbox.strategies.StaleWhileRevalidate());
 
+workbox.routing.registerRoute(
+    new RegExp('\\.(html|css|js|json|jpe?g|png|gif|webp|svg)$'),
+    new workbox.strategies.NetworkFirst()
+);
+
 // キャッシュ対象外のリソースには service worker は何もしない設定
 workbox.routing.setDefaultHandler(new workbox.strategies.NetworkOnly());
 
