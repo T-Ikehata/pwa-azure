@@ -2,23 +2,23 @@
 importScripts('https://storage.googleapis.com/workbox-cdn/releases/3.6.1/workbox-sw.js');
 
 // キャッシュ対象外のリソースには service worker は何もしない設定
-workbox.routing.setDefaultHandler(new workbox.strategies.NetworkOnly());
+workbox.routing.setDefaultHandler(new workbox.strategies.NetworkFirst());
 
-// オフラインページ指定
-const OFFLINE_PAGE = '/pwa-azure/';
-workbox.precaching.precacheAndRoute([
-  OFFLINE_PAGE,
-]);
-
-// オフラインページへのキャッシュ適用
-workbox.routing.setCatchHandler(({ event }) => {
-  switch (event.request.destination) {
-    case 'document':
-      return caches.match(OFFLINE_PAGE);
-    default:
-      return Response.error();
-  }
-}, new workbox.strategies.NetworkFirst());
+//// オフラインページ指定
+//const OFFLINE_PAGE = '/pwa-azure/';
+//workbox.precaching.precacheAndRoute([
+//  OFFLINE_PAGE,
+//]);
+//
+//// オフラインページへのキャッシュ適用
+//workbox.routing.setCatchHandler(({ event }) => {
+//  switch (event.request.destination) {
+//    case 'document':
+//      return caches.match(OFFLINE_PAGE);
+//    default:
+//      return Response.error();
+//  }
+//});
 
 // 実行時キャッシュ登録
 workbox.routing.registerRoute(({ url, request }) => {
