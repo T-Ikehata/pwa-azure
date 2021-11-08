@@ -86,7 +86,9 @@ if ('serviceWorker' in navigator && 'PushManager' in window) {
     swRegistration = swReg;
     swRegistration.onupdatefound = function() {
       onPushConsole('アップデートがあります！');
-      swRegistration.update();
+      //swRegistration.update();
+      swRegistration.unregister();
+      window.location.reload(true); 
     }
 
 
