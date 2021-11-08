@@ -1,4 +1,5 @@
 // STARTボタンを押したら Azure Functions 呼び出し
+const startBtn  = document.getElementById('js-startBtn');
 startBtn.addEventListener('click', () => {
   
   let name = encodeURI("テストユーザー");
