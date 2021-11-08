@@ -1,10 +1,13 @@
+// workbox cdn読み込み
 importScripts('https://storage.googleapis.com/workbox-cdn/releases/3.6.1/workbox-sw.js');
 
+// オフラインページ指定
 const OFFLINE_PAGE = '/pwa-azure/index.html';
 workbox.precaching.precacheAndRoute([
   OFFLINE_PAGE,
 ]);
 
+// オフラインページへのキャッシュ適用
 workbox.routing.setCatchHandler(({ event }) => {
   switch (event.request.destination) {
     case 'document':
@@ -14,6 +17,7 @@ workbox.routing.setCatchHandler(({ event }) => {
   }
 });
 
+// 実行時キャッシュ登録
 workbox.routing.registerRoute(({ url, request }) => {
   const hostnames = [
     // キャッシュを許可するドメイン名のリスト
@@ -32,6 +36,7 @@ workbox.routing.registerRoute(({ url, request }) => {
   );
 }, new workbox.strategies.StaleWhileRevalidate());
 
+// キャッシュ対象外のリソースには service worker は何もしない設定
 workbox.routing.setDefaultHandler(new workbox.strategies.NetworkOnly());
 
 // push 通知の待ち受け
