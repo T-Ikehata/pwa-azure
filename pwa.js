@@ -137,4 +137,16 @@ function onJsonConsole(text) {
     console.textContent = content + "\n" + text;
 }
 
+function reInstallServiceWorker() {
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.getRegistration()
+      .then(registration => registrations => {
+        for(let registration of registrations) {
+          registration.unregister();
+        }
+      });
+    window.location.reload(true);
+  }
+}
+
 
