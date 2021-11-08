@@ -1,43 +1,14 @@
-// 変数定義
-let isPlaying = false
-let tapCount, time = 0
-const tapBtn    = document.getElementById('js-tapBtn')
-const startBtn  = document.getElementById('js-startBtn')
-const countText = document.getElementById('js-count')
-const timeText  = document.getElementById('js-time')
-
-// ゲームの初期値設定
-const setGame = () => {
-  tapCount = 0
-  time = 10000
-  countText.innerText = tapCount
-  timeText.innerHTML = time / 1000
-}
-setGame()
-
-// タップした時にカウントを増やす
-tapBtn.addEventListener('click', () => {
-  if (!isPlaying) return false
-  tapCount++
-  countText.innerText = tapCount
-})
-
-// STARTボタンを押してゲームをスタートさせる
+// STARTボタンを押したら Azure Functions 呼び出し
 startBtn.addEventListener('click', () => {
-  setGame()
-  isPlaying = true
-  tapBtn.disabled = false
-  startBtn.style.display = 'none'
-
-  const timer = setInterval( () => {
-    time -= 10
-    timeText.innerHTML = (time / 1000).toFixed(2)
-
-    if (time === 0) {
-      clearInterval(timer)
-      isPlaying = false
-      startBtn.style.display = 'inline-block'
-      startBtn.innerText = 'もう一回'
-    }
-  }, 10)
-})
+  
+  let name = encodeURI("テストユーザー");
+  fetch("https://sftc-test01-func.azurewebsites.net/api/HttpTrigger1?code=lsvk9FmJ/mTl0JhccAWaErJyFD5qH9FZcrHYYrP3s9DkYnFKqmGJAg==&name=" + name)
+    .then(response => {
+      return response.json();
+    })
+    .then(data => {
+      onJsonConsole(data);
+    })
+    .catch(error => {
+      onJsonConsole("Azure Functions 呼び出しに失敗しました");
+  });
