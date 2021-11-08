@@ -14,3 +14,5 @@ startBtn.addEventListener('click', () => {
     .catch(error => {
       onJsonConsole("Azure Functions 呼び出しに失敗しました");
   });
+
+});
