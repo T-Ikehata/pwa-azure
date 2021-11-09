@@ -3,23 +3,20 @@ importScripts('https://storage.googleapis.com/workbox-cdn/releases/3.6.1/workbox
 
 // オフラインページ指定
 const OFFLINE_PAGE = '/pwa-azure/index.html';
-//workbox.precaching.precacheAndRoute([
-//  OFFLINE_PAGE,
-//]);
-workbox.routing.registerRoute(
-    OFFLINE_PAGE,
-    new workbox.strategies.NetworkFirst()
-);
+workbox.precaching.precacheAndRoute([
+  OFFLINE_PAGE,
+]);
 
-//// オフラインページへのキャッシュ適用
-//workbox.routing.setCatchHandler(({ event }) => {
-//  switch (event.request.destination) {
-//    case 'document':
-//      return caches.match(OFFLINE_PAGE);
-//    default:
-//      return Response.error();
-//  }
-//});
+// オフラインページへのキャッシュ適用
+workbox.routing.setCatchHandler(({ event }) => {
+  console.log("setCatchHandler:" + event.request.destination);
+  switch (event.request.destination) {
+    case 'document':
+      return caches.match(OFFLINE_PAGE);
+    default:
+      return Response.error();
+  }
+});
 
 // 実行時キャッシュ登録
 //workbox.routing.registerRoute(({ url, request }) => {
