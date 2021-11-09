@@ -44,9 +44,15 @@
 //workbox.routing.setDefaultHandler(new workbox.strategies.NetworkOnly());
 
 // キャッシュファイルの指定
-var CACHE_NAME = 'pwa-azure-caches-v23';
+var CACHE_NAME = 'pwa-azure-caches-v24';
 var urlsToCache = [
     '/pwa-azure/',
+    '/pwa-azure/app.css',
+    '/pwa-azure/app.js',
+    '/pwa-azure/index.html',
+    '/pwa-azure/manifest.json',
+    '/pwa-azure/pwa.js',
+    '/pwa-azure/test.png',
 ];
 
 // インストール処理
