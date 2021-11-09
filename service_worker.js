@@ -4,7 +4,7 @@ importScripts('https://storage.googleapis.com/workbox-cdn/releases/6.2.0/workbox
 // オフラインページ指定
 const OFFLINE_PAGE = '/pwa-azure/';
 workbox.precaching.precacheAndRoute([
-  OFFLINE_PAGE,
+  { url: OFFLINE_PAGE, revision: '32' },
 ]);
 
 // オフラインページへのキャッシュ適用
