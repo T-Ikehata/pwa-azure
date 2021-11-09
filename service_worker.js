@@ -7,15 +7,15 @@ workbox.precaching.precacheAndRoute([
   OFFLINE_PAGE,
 ]);
 
-// オフラインページへのキャッシュ適用
-workbox.routing.setCatchHandler(({ event }) => {
-  switch (event.request.destination) {
-    case 'document':
-      return caches.match(OFFLINE_PAGE);
-    default:
-      return Response.error();
-  }
-});
+//// オフラインページへのキャッシュ適用
+//workbox.routing.setCatchHandler(({ event }) => {
+//  switch (event.request.destination) {
+//    case 'document':
+//      return caches.match(OFFLINE_PAGE);
+//    default:
+//      return Response.error();
+//  }
+//});
 
 // 実行時キャッシュ登録
 //workbox.routing.registerRoute(({ url, request }) => {
