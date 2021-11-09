@@ -2,7 +2,7 @@
 //importScripts('https://storage.googleapis.com/workbox-cdn/releases/3.6.1/workbox-sw.js');
 //
 //// オフラインページ指定
-//const OFFLINE_PAGE = '/pwa-azure/index.html';
+//const OFFLINE_PAGE = '/pwa-azure/';
 //workbox.precaching.precacheAndRoute([
 //  OFFLINE_PAGE,
 //]);
