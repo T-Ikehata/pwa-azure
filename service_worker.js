@@ -45,7 +45,7 @@
 
 // キャッシュファイルの指定
 //   ※何か更新がある度にキャッシュファイルの名前を変更すること
-var CACHE_NAME = 'pwa-azure-caches-v24';
+var CACHE_NAME = 'pwa-azure-caches-v24-2';
 var urlsToCache = [
     '/pwa-azure/',
     '/pwa-azure/app.css',
