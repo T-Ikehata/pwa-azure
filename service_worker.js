@@ -1,12 +1,6 @@
 // workbox cdn読み込み
 importScripts('https://storage.googleapis.com/workbox-cdn/releases/3.6.1/workbox-sw.js');
 
-//workbox.core.skipWaiting();
-
-//workbox.core.clientsClaim();
-
-workbox.navigationPreload.enable();
-
 // オフラインページ指定
 const OFFLINE_PAGE = '/pwa-azure/index.html';
 workbox.precaching.precacheAndRoute([
