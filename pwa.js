@@ -127,18 +127,18 @@ if ('serviceWorker' in navigator && 'PushManager' in window) {
 }
 
 function onPushConsole(text, obj) {
-    const console = document.querySelector('#push-console');
-    var content = console.textContent;
-    console.textContent = content + "\n" + text;
+    const cons = document.querySelector('#push-console');
+    var content = cons.textContent;
+    cons.textContent = content + "\n" + text;
     console.log("PushConsole:" + text);
     if (obj !== undefined) {
       console.dir(obj);
     }
 }
 function onJsonConsole(text, obj) {
-    const console = document.querySelector('#json-console');
-    var content = console.textContent;
-    console.textContent = content + "\n" + text;
+    const cons = document.querySelector('#json-console');
+    var content = cons.textContent;
+    cons.textContent = content + "\n" + text;
     console.log("JsonConsole:" + text);
     if (obj !== undefined) {
       console.dir(obj);
