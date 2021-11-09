@@ -36,7 +36,7 @@ workbox.routing.setCatchHandler(({ event }) => {
 //  );
 //}, new workbox.strategies.StaleWhileRevalidate());
 workbox.routing.registerRoute(
-    new RegExp('\\.(html|css|js|json|jpe?g|png|gif|webp|svg)$'),
+    new RegExp('.*\\.(html|css|js|json|jpe?g|png|gif|webp|svg)$'),
     new workbox.strategies.StaleWhileRevalidate()
 );
 
