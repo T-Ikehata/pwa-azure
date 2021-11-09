@@ -126,15 +126,23 @@ if ('serviceWorker' in navigator && 'PushManager' in window) {
   pushButton.textContent = 'Push Not Supported';
 }
 
-function onPushConsole(text) {
+function onPushConsole(text, obj) {
     const console = document.querySelector('#push-console');
     var content = console.textContent;
     console.textContent = content + "\n" + text;
+    console.log("PushConsole:" + text);
+    if (obj !== undefined) {
+      console.dir(obj);
+    }
 }
-function onJsonConsole(text) {
+function onJsonConsole(text, obj) {
     const console = document.querySelector('#json-console');
     var content = console.textContent;
     console.textContent = content + "\n" + text;
+    console.log("JsonConsole:" + text);
+    if (obj !== undefined) {
+      console.dir(obj);
+    }
 }
 
 function reInstallServiceWorker() {
