@@ -140,10 +140,8 @@ function onJsonConsole(text) {
 function reInstallServiceWorker() {
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.getRegistration()
-      .then(registrations => {
-        for(let registration of registrations) {
-          registration.unregister();
-        }
+      .then(registration => {
+        registration.unregister();
       });
     window.location.reload(true);
   }
