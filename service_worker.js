@@ -49,7 +49,6 @@ var urlsToCache = [
     '/pwa-azure/',
     '/pwa-azure/app.css',
     '/pwa-azure/app.js',
-    '/pwa-azure/index.html',
     '/pwa-azure/manifest.json',
     '/pwa-azure/pwa.js',
     '/pwa-azure/test.png',
@@ -74,6 +73,19 @@ self.addEventListener('fetch', function(event) {
             .then(function(response) {
                 return response ? response : fetch(event.request);
             })
+    );
+});
+
+// キャッシュ削除処理
+self.addEventListener('activate', function(event) {
+    event.waitUntil(
+      caches.keys().then(keys => Promise.all(
+        keys.map(key => {
+          if (!expectedCaches.includes(key)) {
+            return caches.delete(key);
+          }
+        })
+      ))
     );
 });
 
