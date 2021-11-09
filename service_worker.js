@@ -1,5 +1,5 @@
 // workbox cdn読み込み
-importScripts('https://storage.googleapis.com/workbox-cdn/releases/3.6.1/workbox-sw.js');
+importScripts('https://storage.googleapis.com/workbox-cdn/releases/6.2.0/workbox-sw.js');
 
 // オフラインページ指定
 const OFFLINE_PAGE = '/pwa-azure/';
