@@ -4,7 +4,7 @@ importScripts('https://storage.googleapis.com/workbox-cdn/releases/6.2.0/workbox
 // オフラインページ指定
 const OFFLINE_PAGE = '/pwa-azure/';
 workbox.precaching.precacheAndRoute([
-  { url: OFFLINE_PAGE, revision: '36' },
+  { url: OFFLINE_PAGE, revision: '37' },
 ]);
 
 // オフラインページへのキャッシュ適用
@@ -101,5 +101,5 @@ self.addEventListener('push', function(event) {
 
   event.waitUntil(self.registration.showNotification(title, options));
   
-  onPushConsole('Push通知を受け取りました！');
+  console.log('Push通知を受け取りました！');
 });
