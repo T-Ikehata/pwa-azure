@@ -44,6 +44,7 @@
 //workbox.routing.setDefaultHandler(new workbox.strategies.NetworkOnly());
 
 // キャッシュファイルの指定
+//   ※何か更新がある度にキャッシュファイルの名前を変更すること
 var CACHE_NAME = 'pwa-azure-caches-v24';
 var urlsToCache = [
     '/pwa-azure/',
