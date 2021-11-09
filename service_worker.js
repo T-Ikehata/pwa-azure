@@ -65,6 +65,20 @@ self.addEventListener('install', function(event) {
     );
 });
 
+// キャッシュ削除処理
+self.addEventListener('activate', function(event) {
+    event.waitUntil(
+      caches.keys().then(keys => Promise.all(
+        keys.map(key => {
+          console.log("key=["+key+"],includes=["+expectedCaches.includes(key)+"]");
+          if (!expectedCaches.includes(key)) {
+            return caches.delete(key);
+          }
+        })
+      ))
+    );
+});
+
 // リソースフェッチ時のキャッシュロード処理
 self.addEventListener('fetch', function(event) {
     event.respondWith(
@@ -73,19 +87,6 @@ self.addEventListener('fetch', function(event) {
             .then(function(response) {
                 return response ? response : fetch(event.request);
             })
-    );
-});
-
-// キャッシュ削除処理
-self.addEventListener('activate', function(event) {
-    event.waitUntil(
-      caches.keys().then(keys => Promise.all(
-        keys.map(key => {
-          if (!expectedCaches.includes(key)) {
-            return caches.delete(key);
-          }
-        })
-      ))
     );
 });
 
