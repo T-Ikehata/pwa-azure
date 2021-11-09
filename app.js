@@ -19,8 +19,3 @@ startBtn.addEventListener('click', () => {
 
 });
 
-
-//
-$("#push-console").css("border", "solid 1px #663");
-$("#json-console").css("border", "solid 1px #366");
-
