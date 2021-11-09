@@ -9,7 +9,6 @@ workbox.precaching.precacheAndRoute([
 
 // オフラインページへのキャッシュ適用
 workbox.routing.setCatchHandler(({ event }) => {
-  event.waitUntil(self.registration.showNotification("setCatchHandler", {body: "destination = [" + event.request.destination + "]"}));
   switch (event.request.destination) {
     case 'document':
       return caches.match(OFFLINE_PAGE);
