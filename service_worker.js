@@ -3,7 +3,7 @@ importScripts('https://storage.googleapis.com/workbox-cdn/releases/3.6.1/workbox
 
 //workbox.core.skipWaiting();
 
-workbox.core.clientsClaim();
+//workbox.core.clientsClaim();
 
 workbox.navigationPreload.enable();
 
